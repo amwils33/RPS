@@ -1,19 +1,21 @@
 // CPU randomly picks Rock, Paper, or Scissors
 function computerPlay(cpuPick){
-    let x = Math.floor(Math.random() * 3);
+    cpuPick = Math.floor(Math.random() * 3);
 
-    if (x === 0){
+    if (cpuPick === 0){
         return 'rock'; 
-    } else if (x ===1){
+    } else if (cpuPick === 1){
         return 'paper';
     }else{
         return 'scissors';
     }
    }
 
-   //Defining potential Selections and Outcomes
+    //Defining function to play a single round and adding potential selections and outcomes
    function playRound(playerSelection, computerSelection){
-
+        playerSelection = prompt("Please choose Rock, Paper, or Scissors").toLowerCase();
+        computerSelection = computerPlay();
+   
       
         if (playerSelection === 'rock' && computerSelection ==='paper'){
         return 'You lose. Paper beats Rock'
@@ -37,3 +39,15 @@ function computerPlay(cpuPick){
         return 'Something went wrong. Please report the problem and refresh';
         }
     }
+
+   
+    
+    
+    //need to add functionality to keep score and declare a winner at the end.
+    //See if return statements can be added between rounds. 
+    function game(){
+       
+    }
+
+
+  
