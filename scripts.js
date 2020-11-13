@@ -1,3 +1,7 @@
+let playerScore = 0;
+let cpuScore = 0;
+
+
 // CPU randomly picks Rock, Paper, or Scissors
 function computerPlay(cpuPick){
     cpuPick = Math.floor(Math.random() * 3);
@@ -13,40 +17,53 @@ function computerPlay(cpuPick){
 
     //Defining function to play a single round and adding potential selections and outcomes
    function playRound(playerSelection, computerSelection){
+     
         playerSelection = prompt("Please choose Rock, Paper, or Scissors").toLowerCase();
         computerSelection = computerPlay();
    
       
         if (playerSelection === 'rock' && computerSelection ==='paper'){
-        return 'You lose. Paper beats Rock'
+        console.log('You lose. Paper beats Rock');
+        cpuScore++;
         }else if (playerSelection === 'rock' && computerSelection ==='scissors'){
-        return 'You win. Rock beats scissors';
+        console.log('You win. Rock beats Scissors');
+        playerScore++;
         }else if (playerSelection === 'rock' && computerSelection === 'rock'){
-        return 'Tie. You both picked Rock.'
+        console.log('Tie. You both picked Rock.');
         }else if (playerSelection === 'paper' && computerSelection === 'rock'){
-        return 'You win. Paper beats Rock.';
+        console.log('You win. Paper beats Rock.');
+        playerScore++;
         }else if (playerSelection === 'paper' && computerSelection === 'paper'){
-        return 'Tie. You both picked Paper.';
+        console.log('Tie. You both picked Paper.');
         }else if (playerSelection === 'paper' && computerSelection === 'scissors'){
-        return 'You lose. Scissors beats Paper.';
+        console.log('You lose. Scissors beats Paper.');
+        cpuScore++;
         }else if (playerSelection === 'scissors' && computerSelection === 'rock'){
-        return 'You lose. Rock beats Scissors.';
+        console.log('You lose. Rock beats Scissors.');
+        cpuScore++;
         }else if (playerSelection === 'scissors' && computerSelection === 'paper'){
-        return 'You win. Scissors beats Paper.';
+        console.log('You win. Scissors beats Paper.');
+        playerScore++;
         }else if (playerSelection === 'scissors' && computerSelection === 'scissors'){
-        return 'Tie. You both picked Scissors.';
+        console.log('Tie. You both picked Scissors.');
         }else{
-        return 'Something went wrong. Please report the problem and refresh';
+        console.log('Something went wrong. Please report the problem and refresh');
         }
     }
 
    
     
     
-    //need to add functionality to keep score and declare a winner at the end.
-    //See if return statements can be added between rounds. 
+    //While player score and cpu score are both less than 5, playround runs until one of them reaches 5. Then a winner is declared. 
     function game(){
-       
+        while (playerScore < 5 && cpuScore < 5){
+           playRound();
+           }
+       if(playerScore ==5){
+       console.log("You Win! Refresh to Play Again. Player Score: " + playerScore + "   CPU Score: " +  cpuScore);
+       }else {
+        console.log("Computer Wins! Refresh to Play Again. Player Score: " + playerScore + "   CPU Score: " +  cpuScore);
+       }
     }
 
 
